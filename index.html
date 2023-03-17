@@ -1,0 +1,55 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
+<style>
+body{font-family: 'Open Sans', sans-serif;
+/* filter:invert(0.9); */
+background-color: #222;}
+h2{color:rgb(215, 214, 222)}
+h3{color:rgb(245, 209, 27)}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
+
+
+<body>
+    <h2 id ='q'></h2>
+    <h3 id ='a'></h3>
+    
+    </body>
+
+<script>
+        console.log('start')
+    
+    const q = document.getElementById('q');
+    const a = document.getElementById('a');
+   
+    var i = -1
+
+
+    d3.csv('/questions/l3ap.csv').then(d=>{
+
+        window.d = d3.shuffle(d)
+
+
+        n()
+
+        console.log(d[3])
+
+    })
+
+
+    function n(){
+        i++
+        a.innerHTML = window.d[i].correct
+        q.innerHTML = window.d[i].question
+        
+    
+    }
+
+    document.onclick = n
+
+
+
+</script>
+
